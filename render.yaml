@@ -10,3 +10,7 @@ services:
         fromDatabase:
           name: elephant
           property: connectionString
+databases:
+  - name: elephant
+    databaseName: metabasedb
+    ipAllowList: [] # only allow internal connections
