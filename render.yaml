@@ -1,10 +1,11 @@
 services:
   - type: web
-    name: metabase
+    name: predicter-metabase
     env: docker
     repo: https://github.com/marian-andre/render-com-metabase.git # optional
     plan: starter # ensure that metabase has at least 2GB of RAM (defaults to starter)
     autoDeploy: false
+    region: frankfurt
     envVars:
       - key: MB_DB_CONNECTION_URI
         fromDatabase:
@@ -15,4 +16,5 @@ databases:
     databaseName: metabasedb
     plan: Basic-256mb
     diskSizeGB: 1
+    region: frankfurt
     ipAllowList: [] # only allow internal connections
