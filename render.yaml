@@ -2,15 +2,17 @@ services:
   - type: web
     name: metabase
     env: docker
-    repo: https://github.com/render-examples/metabase.git # optional
-    plan: standard # ensure that metabase has at least 2GB of RAM (defaults to starter)
+    repo: https://github.com/marian-andre/render-com-metabase.git # optional
+    plan: starter # ensure that metabase has at least 2GB of RAM (defaults to starter)
     autoDeploy: false
     envVars:
       - key: MB_DB_CONNECTION_URI
         fromDatabase:
-          name: elephant
+          name: predicter-metabase-database
           property: connectionString
 databases:
-  - name: elephant
+  - name: predicter-metabase-database
     databaseName: metabasedb
+    plan: Basic-256mb
+    diskSizeGB: 1
     ipAllowList: [] # only allow internal connections
